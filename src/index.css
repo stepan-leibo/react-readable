@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+hr {
+  display: block !important;
+  height: 1px !important;
+  border: 0 !important;
+  border-top: 1px solid #ccc !important;
+  margin: 1em 0 !important;
+  padding: 0 !important;
+}
