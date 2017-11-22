@@ -68,10 +68,10 @@ class Post extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps({post}, ownProps) {
     return {
-        post: state.post.posts && ownProps.match.params.id
-            ? state.post.posts.find(item => item.id === ownProps.match.params.id)
+        post: post.posts && ownProps.match.params.id
+            ? post.posts.find(item => item.id === ownProps.match.params.id)
             : null
     }
 }

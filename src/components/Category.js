@@ -50,13 +50,13 @@ class Category extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps({category, post}, ownProps) {
     return {
-        category: state.category.categories
-            ? state.category.categories.find(item => item.name === ownProps.match.params.name)
+        category: category.categories
+            ? category.categories.find(item => item.name === ownProps.match.params.name)
             : {},
-        posts: state.post.posts
-            ? state.post.posts.filter(item => item.category === ownProps.match.params.name)
+        posts: post.posts
+            ? post.posts.filter(item => item.category === ownProps.match.params.name)
             : []
     }
 }

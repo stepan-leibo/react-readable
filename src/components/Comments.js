@@ -24,10 +24,10 @@ class Comments extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps({comment}, ownProps) {
     return {
-        comments: state.comment.comments && ownProps.postId
-            ? state.comment.comments.filter(item => item.parentId === ownProps.postId)
+        comments: comment.comments && ownProps.postId
+            ? comment.comments.filter(item => item.parentId === ownProps.postId)
             : []
     }
 }

@@ -4,3 +4,17 @@ export function uuidv4() {
         return v.toString(16);
     });
 }
+
+Array.prototype.unique = function(field) {
+    let a = this.concat();
+    for(let i=0; i<a.length; ++i) {
+        for(let j=i+1; j<a.length; ++j) {
+            if((field && a[i][field] === a[j][field]) || (!field && a[i] === a[j])) {
+                a[i] = a[j];
+                a.splice(j--, 1);
+            }
+        }
+    }
+
+    return a;
+};

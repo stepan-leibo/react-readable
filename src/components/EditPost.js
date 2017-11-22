@@ -131,13 +131,13 @@ class EditPost extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps({category, post}, ownProps) {
     return {
-        categories: state.category.categories
-            ? state.category.categories
+        categories: category.categories
+            ? category.categories
             : [],
-        post: state.post.posts && ownProps.match.params.id
-            ? state.post.posts.find(item => item.id === ownProps.match.params.id)
+        post: post.posts && ownProps.match.params.id
+            ? post.posts.find(item => item.id === ownProps.match.params.id)
             : null
     }
 }
