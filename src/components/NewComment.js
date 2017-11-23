@@ -20,7 +20,9 @@ class NewComment extends Component {
     }
 
     saveComment() {
-        this.props.dispatch(ReadableApi.saveComment(this.state.comment, this.props.postId, (comment) => this.onCommentSaved(comment)));
+        this.props.dispatch(ReadableApi.saveComment(this.state.comment, this.props.postId,
+
+            (comment) => this.onCommentSaved(comment)));
     }
 
     onCommentSaved(comment) {

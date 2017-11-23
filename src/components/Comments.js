@@ -14,6 +14,10 @@ class Comments extends Component {
         return (
             <div className="row">
                 <div className="col-md-12">
+                    <hr/>
+                    <h4>Comments<b>({this.props.comments.length})</b></h4>
+                </div>
+                <div className="col-md-12">
                     <NewComment postId={this.props.postId}/>
                     {this.props.comments.sort(sortBy("-voteScore")).map(comment => (
                         <EditableComment key={comment.id} comment={comment} postId={this.props.postId}/>

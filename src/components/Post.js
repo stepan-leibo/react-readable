@@ -9,7 +9,7 @@ class Post extends Component {
     componentDidMount() {
         let postId = this.props.match.params.id;
         if (postId) {
-            this.props.dispatch(ReadableApi.getPost(postId));
+            this.props.dispatch(ReadableApi.getPost(postId, () => this.props.history.push("/notfound")));
             this.props.dispatch(ReadableApi.getComments(postId));
         }
     }
@@ -34,6 +34,9 @@ class Post extends Component {
                     <div>
                         <div className="col-md-12">
                             <h2>
+
+                                <Link to="/">categories</Link>
+                                <span>/</span>
                                 <Link to={`/category/${post.category}`}>
                                     {post.category}
                                 </Link>
@@ -55,10 +58,6 @@ class Post extends Component {
                         </div>
                         <div className="col-md-12">
                             {post.body}
-                        </div>
-                        <div className="col-md-12">
-                            <hr/>
-                            <h4>Comments</h4>
                         </div>
                         <Comments postId={post.id} />
                     </div>

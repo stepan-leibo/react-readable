@@ -28,11 +28,19 @@ export default class ReadableApi {
                 .catch(err => toast.error(err.message))
     }
 
-    static getPost(postId) {
+    static getPost(postId, emptyPostCallback) {
         return (dispatch) =>
             fetch(`http://localhost:3001/posts/${postId}`, {headers: ReadableApi.getHeaders()})
                 .then(resp => resp.json())
-                .then(post => dispatch(postsActionCreators.post.addOne(post)))
+                .then(post => {
+                    if (Object.keys(post).length !== 0) {
+                        dispatch(postsActionCreators.post.addOne(post))
+                    } else {
+                        if (emptyPostCallback) {
+                            emptyPostCallback();
+                        }
+                    }
+                })
                 .catch(err => toast.error(err.message))
     }
 
